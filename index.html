@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE DIGITAL AUDIT // AVERY LAKE</title>
+  <meta name="description" content="Locate the human signal within the noise.">
+  <meta name="author" content="Avery Lake">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="THE DIGITAL AUDIT // AVERY LAKE">
+  <meta property="og:description"
+    content="A continuous audit of the soul in the Intelligence Age. Locate the human signal within the noise.">
+  <meta property="og:image" content="https://digital.averylakeofficial.com/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://digital.averylakeofficial.com/preview.jpg">
+  <meta property="og:url" content="https://digital.averylakeofficial.com/">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2300ffff'/></svg>">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Polyfill for older browsers (iOS 12) -->
+  <script crossorigin="anonymous"
+    src="https://polyfill.io/v3/polyfill.min.js?features=es6%2Ces2015%2Ces2016%2Ces2017%2CArray.prototype.forEach%2CArray.prototype.find%2CObject.assign%2CPromise"></script>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <script>
+    (function () {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var isInApp = (ua.indexOf('Instagram') > -1) || (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1) || (ua.indexOf('LinkedIn') > -1) || (ua.indexOf('Musical_ly') > -1);
+      if (isInApp) {
+        document.documentElement.innerHTML = `
+          <body style="background-color: #050505; color: #fff; font-family: 'Space Grotesk', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 20px;">
+            <div style="font-size: 3rem; margin-bottom: 20px;">⚠️</div>
+            <h2 style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">System Restricted</h2>
+            <p style="color: #888; max-width: 300px; line-height: 1.5; margin-bottom: 30px;">
+              This protocol cannot run inside a social media wrapper.<br><br>
+              Please tap the <strong>•••</strong> menu and choose<br>
+              <strong style="color: #00ffff;">OPEN IN BROWSER</strong>
+            </p>
+          </body>
+        `;
+        window.stop();
+      }
+    })();
+  </script>
+
+  <style>
+    /* --- STYLE ENGINE V29.0: PROTOCOL COLORS + PROGRESS --- */
+    :root {
+      --bg-color: #050505;
+      --text-color: #ffffff;
+      --dim-color: rgba(255, 255, 255, 0.3);
+      --accent-border: 1px solid rgba(255, 255, 255, 0.15);
+      --font-main: 'Space Grotesk', sans-serif;
+
+      /* PROTOCOL COLORS - Matching each experience */
+      --color-00: #00ffff;
+      /* The Silence - Cyan */
+      --color-01: #ff3333;
+      /* The Observer - Red */
+      --color-02: #ff00ff;
+      /* The Pebble - Magenta */
+      --color-03: #ffff00;
+      /* The Handle - Yellow */
+      --color-04: #ff66b2;
+      /* The Asset - Pink (Coming Soon) */
+      --color-05: #FF4466;
+      /* The Heart - Heart Red */
+      --color-07: #888888;
+      /* The Breath - Gray (Exclusive) */
+      --color-signal: #ffffff;
+      /* The Signal - White */
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      font-family: var(--font-main);
+      overflow: hidden;
+      touch-action: manipulation;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: crosshair;
+    }
+
+    #void-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #ui-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      padding: 30px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .header {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-color);
+      pointer-events: auto;
+      z-index: 20;
+    }
+
+    .status-light {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-00);
+      border-radius: 50%;
+      margin-right: 8px;
+      box-shadow: 0 0 10px var(--color-00);
+      animation: pulse 2s infinite;
+    }
+
+    .status-light.active {
+      background-color: var(--color-02);
+      box-shadow: 0 0 15px var(--color-02);
+      animation: pulse-fast 0.5s infinite;
+    }
+
+    .header a {
+      color: var(--dim-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    .header a:hover {
+      color: var(--text-color);
+      border-bottom-color: var(--text-color);
+    }
+
+    /* CARDS (MONOLITHS) */
+    #drift-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+    }
+
+    .protocol-card {
+      position: absolute;
+      pointer-events: auto;
+      width: 140px;
+      height: 250px;
+      border: var(--accent-border);
+      background: rgba(10, 10, 10, 0.4);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      will-change: transform, left, top;
+      border-radius: 2px;
+    }
+
+    .protocol-card.is-dragging {
+      transition: none !important;
+      z-index: 1000 !important;
+      cursor: grabbing;
+    }
+
+    /* Horizontal Text */
+    .protocol-card h2 {
+      font-size: 0.85rem;
+      margin: 0;
+      font-weight: 500;
+      color: var(--dim-color);
+      transition: 0.3s;
+      text-transform: uppercase;
+      pointer-events: none;
+      letter-spacing: 2px;
+      padding: 0 10px;
+    }
+
+    .protocol-card span {
+      font-size: 0.6rem;
+      margin-top: 0;
+      position: absolute;
+      bottom: 15px;
+      letter-spacing: 2px;
+      color: transparent;
+      transition: 0.4s;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* COMPLETED INDICATOR */
+    .protocol-card.completed::after {
+      content: '✓';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* RECOMMENDED (NEXT) */
+    .protocol-card.recommended {
+      animation: recommend-pulse 2s infinite;
+    }
+
+    @keyframes recommend-pulse {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+
+      100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    /* START HERE - Protocol 00 indicator */
+    .protocol-card.start-here {
+      animation: start-pulse 2.5s ease-in-out infinite;
+    }
+
+    .protocol-card.start-here::before {
+      content: 'START HERE';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--color-00);
+      opacity: 0.8;
+    }
+
+    @keyframes start-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      }
+    }
+
+    /* END HERE - Protocol 07 indicator */
+    .protocol-card.end-here::before {
+      content: 'END HERE';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--color-07);
+      opacity: 0.8;
+    }
+
+    .protocol-card.end-here {
+      animation: end-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes end-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 0 25px rgba(136, 136, 136, 0.4);
+      }
+    }
+
+    /* Protocol Number Labels */
+    .protocol-number {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .protocol-card:hover .protocol-number {
+      opacity: 1;
+    }
+
+    /* Hide number when START/END label is shown */
+    .protocol-card.start-here .protocol-number,
+    .protocol-card.end-here .protocol-number {
+      display: none;
+    }
+
+    /* --- PROTOCOL-SPECIFIC COLORS --- */
+    /* 00: The Silence - Cyan */
+    .protocol-card.color-00:not(.locked):hover {
+      border-color: var(--color-00);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-00:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-00);
+    }
+
+    .protocol-card.color-00:not(.locked):hover span {
+      color: var(--color-00);
+    }
+
+    .protocol-card.color-00.is-dragging {
+      border-color: var(--color-00);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    }
+
+    .protocol-card.color-00.completed::after {
+      color: var(--color-00);
+    }
+
+    /* 01: The Observer - Red */
+    .protocol-card.color-01:not(.locked):hover {
+      border-color: var(--color-01);
+      box-shadow: 0 0 30px rgba(255, 51, 51, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-01:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-01);
+    }
+
+    .protocol-card.color-01:not(.locked):hover span {
+      color: var(--color-01);
+    }
+
+    .protocol-card.color-01.is-dragging {
+      border-color: var(--color-01);
+      box-shadow: 0 0 30px rgba(255, 51, 51, 0.4);
+    }
+
+    .protocol-card.color-01.completed::after {
+      color: var(--color-01);
+    }
+
+    /* 02: The Pebble - Magenta */
+    .protocol-card.color-02:not(.locked):hover {
+      border-color: var(--color-02);
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-02:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-02);
+    }
+
+    .protocol-card.color-02:not(.locked):hover span {
+      color: var(--color-02);
+    }
+
+    .protocol-card.color-02.is-dragging {
+      border-color: var(--color-02);
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+    }
+
+    .protocol-card.color-02.completed::after {
+      color: var(--color-02);
+    }
+
+    /* 03: The Handle - Yellow */
+    .protocol-card.color-03:not(.locked):hover {
+      border-color: var(--color-03);
+      box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-03:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-03);
+    }
+
+    .protocol-card.color-03:not(.locked):hover span {
+      color: var(--color-03);
+    }
+
+    .protocol-card.color-03.is-dragging {
+      border-color: var(--color-03);
+      box-shadow: 0 0 30px rgba(255, 255, 0, 0.4);
+    }
+
+    .protocol-card.color-03.completed::after {
+      color: var(--color-03);
+    }
+
+    /* 04: The Asset - Pink (Coming Soon) */
+    .protocol-card.color-04:hover {
+      border-color: var(--color-04);
+      box-shadow: 0 0 30px rgba(255, 102, 178, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-04:hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-04);
+    }
+
+    .protocol-card.color-04:hover span {
+      color: var(--color-04);
+    }
+
+    /* 05: The Heart - Heart Red */
+    .protocol-card.color-05:not(.locked):hover {
+      border-color: var(--color-05);
+      box-shadow: 0 0 30px rgba(255, 68, 102, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-05:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-05);
+    }
+
+    .protocol-card.color-05:not(.locked):hover span {
+      color: var(--color-05);
+    }
+
+    .protocol-card.color-05.is-dragging {
+      border-color: var(--color-05);
+      box-shadow: 0 0 30px rgba(255, 68, 102, 0.4);
+    }
+
+    .protocol-card.color-05.completed::after {
+      color: var(--color-05);
+    }
+
+    /* 07: The Breath - Exclusive (Gray) */
+    .protocol-card.color-07:not(.locked):hover {
+      border-color: var(--color-07);
+      box-shadow: 0 0 30px rgba(136, 136, 136, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-07:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 var(--color-07);
+    }
+
+    .protocol-card.color-07:not(.locked):hover span {
+      color: var(--color-07);
+    }
+
+    .protocol-card.color-07.is-dragging {
+      border-color: var(--color-07);
+      box-shadow: 0 0 30px rgba(136, 136, 136, 0.4);
+    }
+
+    .protocol-card.color-07.completed::after {
+      color: var(--color-07);
+    }
+
+    /* Signal: The Signal - White */
+    .protocol-card.color-signal:not(.locked):hover {
+      border-color: var(--color-signal);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+      background: rgba(20, 20, 20, 0.9);
+      transform: scale(1.05);
+      z-index: 100;
+    }
+
+    .protocol-card.color-signal:not(.locked):hover h2 {
+      color: white;
+      text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .protocol-card.color-signal:not(.locked):hover span {
+      color: var(--color-signal);
+    }
+
+    .protocol-card.color-signal.is-dragging {
+      border-color: var(--color-signal);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+
+    .protocol-card.color-signal.completed::after {
+      color: var(--color-signal);
+    }
+
+    /* LOCKED STATE */
+    .protocol-card.locked {
+      border-style: dashed;
+      cursor: not-allowed;
+    }
+
+    /* FOOTER */
+    .footer {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      pointer-events: auto;
+      z-index: 20;
+    }
+
+    .btn-small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--dim-color);
+      border: var(--accent-border);
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      background: rgba(0, 0, 0, 0.5);
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+
+    .btn-small:hover {
+      color: white;
+      border-color: var(--color-00);
+      background: rgba(0, 255, 255, 0.1);
+    }
+
+    .btn-small.audio-active {
+      color: var(--color-00);
+      border-color: var(--color-00);
+      text-shadow: 0 0 5px var(--color-00);
+    }
+
+    .footer-info {
+      text-align: right;
+      color: #444;
+    }
+
+    .footer-tag {
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      line-height: 1.5;
+    }
+
+    .audio-credit {
+      font-size: 0.5rem;
+      color: #333;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* MODALS */
+    .modal-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 200;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-wrapper.active {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 500px;
+      border: 1px solid #333;
+      background: #0a0a0a;
+      padding: 40px;
+      color: #ddd;
+      position: relative;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content h3 {
+      color: var(--color-00);
+      text-transform: uppercase;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .modal-content p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #555;
+    }
+
+    .close-btn:hover {
+      color: white;
+    }
+
+    .modal-link {
+      color: var(--color-02);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    .modal-link:hover {
+      border-bottom-color: var(--color-02);
+      color: #fff;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: 1px solid var(--color-02);
+      color: var(--color-02);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background: var(--color-02);
+      color: #000;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes pulse-fast {
+      0% {
+        opacity: 0.8;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        font-size: 0.65rem;
+      }
+
+      .footer {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        left: 0;
+        bottom: 40px;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      .footer-info {
+        text-align: center;
+      }
+
+      .protocol-card {
+        width: 80px;
+        height: 142px;
+      }
+
+      .protocol-card h2 {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+
+      .protocol-card span {
+        font-size: 0.45rem;
+        bottom: 8px;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .btn-small {
+        width: 100%;
+        margin: 0;
+        padding: 12px;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="void-canvas"></canvas>
+
+  <audio id="bg-audio" loop>
+    <source src="The Protocols.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="drift-layer"></div>
+
+  <div id="ui-container">
+    <div class="header">
+      <div>
+        <span id="system-light" class="status-light"></span>SYSTEM: LISTENING
+        <div style="font-size:0.5rem; color:#444; margin-top:5px;">ID: HUMAN_SIGNAL_V29.0</div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div class="btn-group">
+        <div id="audio-btn" class="btn-small" onclick="manualToggleAudio()">[ AUDIO: OFFLINE ]</div>
+        <div class="btn-small" onclick="openModal('brief-modal')">MISSION BRIEF</div>
+        <div class="btn-small" onclick="openModal('omni-modal')">[ ? ] THE OMNI-ARTIFACT</div>
+        <div class="btn-small"
+          onclick="window.open('https://gallery.averylakeofficial.com/pages/join-the-mailing-list', '_blank')">JOIN
+          CORRESPONDENCE</div>
+        <div class="btn-small" style="color: var(--color-signal);"
+          onclick="window.open('https://distrokid.com/hyperfollow/averylake/the-signal', '_blank')">🎵 THE SIGNAL ALBUM</div>
+      </div>
+
+      <div class="footer-info">
+        <div class="footer-tag">AN ART OF AVERY LAKE EXPERIMENT</div>
+        <div style="font-size: 8px; opacity: 0.5; margin-top: 4px;">© 2026 Avery Lake. All rights reserved.</div>
+        <a href="https://averylakeofficial.com/the-signal" target="_blank" style="text-decoration: none;">
+          <div class="audio-credit" style="cursor: pointer; transition: color 0.3s;">Audio: THE SIGNAL by AVERY LAKE →
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="brief-modal" class="modal-wrapper">
+    <div class="modal-content">
+      <div class="close-btn" onclick="closeAllModals()">×</div>
+      <h3>THE DIGITAL AUDIT OF THE HUMAN CONDITION</h3>
+      <p><strong>We do not just look at technology; we live inside its logic.</strong></p>
+      <p>This is a continuous audit of the soul in the Intelligence Age. A series of executable protocols to test the
+        human condition.</p>
+      <p><strong>OBJECTIVE:</strong> Locate the human signal within the noise.</p>
+      <p style="font-size:0.75rem; color:#888;"><strong>RECOMMENDED:</strong> Complete protocols in order for the full
+        experience.</p>
+
+      <div style="border-top:1px solid #333; margin:20px 0;"></div>
+
+      <p style="font-size:0.7rem; color:#999; line-height: 1.6;">
+        <strong style="color:#fff;">TECHNICAL NOTE:</strong> For the optimal experience, these protocols require a
+        modern browser engine (Chrome, Safari, Firefox). Avoid using in-app viewers. ⚠️<br><br>
+        <strong style="color:#fff;">PERFORMANCE:</strong> Code is Vibe Coded—designed for meaning, not machine
+        efficiency.<br><br>
+        <strong style="color:#fff;">THE ARTIFACT:</strong> Printed & hand-signed copies of your experience are available
+        for most experiments.<br><br>
+        <strong style="color:#fff;">PRIVACY:</strong> Your audit data is stored locally on your device. Some protocols
+        derive your approximate location from your IP address to personalize the data log. We use no cookies or
+        tracking.
+      </p>
+
+      <div style="border-top:1px solid #333; margin:20px 0;"></div>
+
+      <p style="font-size:0.8rem; color:#fff; text-transform: uppercase; letter-spacing: 1px;">
+        The Human Signal in the Intelligence Age<br>
+        <span style="color:#888; font-size: 0.7rem;">Swiss-Canadian Conceptual Artist & Ethicist</span>
+      </p>
+
+      <p style="font-size:0.7rem;"><a href="https://gallery.averylakeofficial.com/pages/about" target="_blank"
+          class="modal-link">About Avery Lake [>]</a></p>
+    </div>
+  </div>
+
+  <div id="omni-modal" class="modal-wrapper">
+    <div class="modal-content">
+      <div class="close-btn" onclick="closeAllModals()">×</div>
+      <h3 style="color:var(--color-02);">THE OMNI-ARTIFACT</h3>
+      <p><strong>The Final Calculation.</strong></p>
+      <p>Collectors who acquire all unique artifacts from the Digital Audit (Scale, Will, Agency, Value) will unlock the
+        <strong>Omni-Artifact</strong>.
+      </p>
+      <p style="color:#888; font-size: 0.75rem; border: 1px solid #333; padding: 10px; display:inline-block;">STATUS: [
+        COMING SOON ]</p>
+      <p>Join the Correspondence to receive the unlock key when the protocol launches.</p>
+      <a href="https://gallery.averylakeofficial.com/pages/join-the-mailing-list" target="_blank"
+        class="cta-button">JOIN THE CORRESPONDENCE</a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('void-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const mouse = { x: -5000, y: -5000 };
+
+    // --- PROGRESS TRACKING ---
+    const PROGRESS_KEY = 'digitalAuditProgress';
+
+    function getProgress() {
+      try {
+        return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function markCompleted(protocolId) {
+      const progress = getProgress();
+      progress[protocolId] = { completed: true, timestamp: Date.now() };
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+    }
+
+    function isCompleted(protocolId) {
+      var progress = getProgress();
+      return (progress[protocolId] && progress[protocolId].completed) || false;
+    }
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    }
+    window.addEventListener('resize', resize);
+
+    // --- AUDIO ENGINE ---
+    const audio = document.getElementById('bg-audio');
+    const audioBtn = document.getElementById('audio-btn');
+    const systemLight = document.getElementById('system-light');
+    let isAudioPlaying = false;
+    let userHasManuallyStopped = false;
+
+    function handleInteraction(e) {
+      if (e.type === 'mousemove') {
+        mouse.x = e.clientX; mouse.y = e.clientY;
+      } else if (e.type === 'touchmove' || e.type === 'touchstart') {
+        if (e.touches[0]) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }
+      }
+
+      if (!isAudioPlaying && !userHasManuallyStopped) {
+        audio.play().then(() => {
+          isAudioPlaying = true;
+          audioBtn.innerHTML = "[ AUDIO: ONLINE ]";
+          audioBtn.classList.add('audio-active');
+          systemLight.classList.add('active');
+        }).catch(err => { });
+      }
+    }
+
+    window.addEventListener('mousemove', handleInteraction);
+    window.addEventListener('mousedown', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction, { passive: false });
+    window.addEventListener('touchmove', handleInteraction, { passive: false });
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('keydown', handleInteraction);
+
+    function manualToggleAudio() {
+      if (isAudioPlaying) {
+        audio.pause();
+        isAudioPlaying = false;
+        userHasManuallyStopped = true;
+        audioBtn.innerHTML = "[ AUDIO: OFFLINE ]";
+        audioBtn.classList.remove('audio-active');
+        systemLight.classList.remove('active');
+      } else {
+        audio.play().then(() => {
+          isAudioPlaying = true;
+          userHasManuallyStopped = false;
+          audioBtn.innerHTML = "[ AUDIO: ONLINE ]";
+          audioBtn.classList.add('audio-active');
+          systemLight.classList.add('active');
+        });
+      }
+    }
+
+    /* PARTICLES */
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width; this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2; this.baseAlpha = Math.random() * 0.3 + 0.1;
+        this.alpha = this.baseAlpha; this.colorType = 0;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0) this.x = width; if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height; if (this.y > height) this.y = 0;
+
+        const dx = mouse.x - this.x; const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 150) {
+          const angle = Math.atan2(dy, dx); const force = (150 - dist) / 150;
+          this.x -= Math.cos(angle) * force * 8; this.y -= Math.sin(angle) * force * 8;
+          this.alpha = 1; if (Math.random() > 0.9) this.colorType = Math.random() > 0.5 ? 1 : 2;
+        } else {
+          if (this.alpha > this.baseAlpha) this.alpha -= 0.02;
+          this.colorType = 0;
+        }
+      }
+      draw() {
+        if (this.colorType === 1) ctx.fillStyle = `rgba(0,255,255,${this.alpha})`;
+        else if (this.colorType === 2) ctx.fillStyle = `rgba(255,0,255,${this.alpha})`;
+        else ctx.fillStyle = `rgba(200,200,200,${this.alpha})`;
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = (width * height) / 5000;
+      for (let i = 0; i < count; i++) particles.push(new Particle());
+    }
+
+    function animateFog() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateFog);
+    }
+
+    /* CARDS */
+    const protocols = [
+      {
+        id: 'silence', title: 'The Silence', sub: '00 // ORIGIN', colorClass: 'color-00',
+        link: 'http://silence.averylakeofficial.com/', locked: false, num: '00', numColor: 'var(--color-00)'
+      },
+      {
+        id: 'observer', title: 'The Observer', sub: '01 // SCALE', colorClass: 'color-01',
+        link: 'https://observer.averylakeofficial.com/', locked: false, num: '01', numColor: 'var(--color-01)'
+      },
+      {
+        id: 'pebble', title: 'The Pebble', sub: '02 // WILL', colorClass: 'color-02',
+        link: 'https://pebble.averylakeofficial.com/', locked: false, num: '02', numColor: 'var(--color-02)'
+      },
+      {
+        id: 'handle', title: 'The Handle', sub: '03 // AGENCY', colorClass: 'color-03',
+        link: 'https://handle.averylakeofficial.com/', locked: false, num: '03', numColor: 'var(--color-03)'
+      },
+      {
+        id: 'asset', title: 'The Asset', sub: '04 // VALUE', colorClass: 'color-04',
+        link: 'https://asset.averylakeofficial.com/', locked: false, num: '04', numColor: 'var(--color-04)'
+      },
+      {
+        id: 'heart', title: 'The Heart', sub: '05 // PULSE', colorClass: 'color-05',
+        link: 'https://heart.averylakeofficial.com/', locked: false, num: '05', numColor: 'var(--color-05)'
+      },
+      {
+        id: 'signal', title: 'The Signal', sub: '06 // SINGULAR', colorClass: 'color-signal',
+        link: 'https://i.averylakeofficial.com/', locked: false, num: '06', numColor: 'var(--color-signal)'
+      },
+      {
+        id: 'breath', title: 'The Breath', sub: '∞ // CONSCIOUSNESS', colorClass: 'color-07',
+        link: 'https://breath.averylakeofficial.com/', locked: false, num: '∞', numColor: 'var(--color-07)', isEnd: true
+      }
+    ];
+
+    // Order for sequential recommendation (excluding locked and signal)
+    const SEQUENCE = ['silence', 'observer', 'pebble', 'handle', 'asset', 'heart', 'signal', 'breath'];
+
+    const layer = document.getElementById('drift-layer');
+    let cards = [];
+    let draggingCard = null;
+    let dragOffset = { x: 0, y: 0 };
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    function getFirstIncomplete() {
+      for (const id of SEQUENCE) {
+        if (!isCompleted(id)) return id;
+      }
+      return null; // All complete
+    }
+
+    function initCards() {
+      layer.innerHTML = '';
+      cards = [];
+
+      const firstIncomplete = getFirstIncomplete();
+
+      protocols.forEach((p) => {
+        const card = document.createElement('div');
+        card.className = 'protocol-card ' + p.colorClass;
+        if (p.locked) card.classList.add('locked');
+        if (isCompleted(p.id)) card.classList.add('completed');
+        if (p.id === firstIncomplete) card.classList.add('recommended');
+        if (p.id === 'silence' && !isCompleted('silence')) card.classList.add('start-here');
+        if (p.isEnd) card.classList.add('end-here');
+
+        card.innerHTML = `<div class="protocol-number" style="color: ${p.numColor}">${p.num}</div><h2>${p.title}</h2><span>${p.sub}</span>`;
+
+        const startX = 35 + (Math.random() * 30);
+        const startY = 20 + (Math.random() * 50);
+
+        const state = {
+          el: card,
+          x: startX,
+          y: startY,
+          vx: (Math.random() - 0.5) * 0.14,
+          vy: (Math.random() - 0.5) * 0.14,
+          hovering: false,
+          isDragging: false
+        };
+
+        const startHandler = (e) => {
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          dragStartX = clientX; dragStartY = clientY;
+          draggingCard = state; state.isDragging = false;
+          const rect = state.el.getBoundingClientRect();
+          dragOffset.x = clientX - rect.left;
+          dragOffset.y = clientY - rect.top;
+        };
+
+        card.addEventListener('mousedown', startHandler);
+        card.addEventListener('touchstart', startHandler, { passive: false });
+
+        // --- CLICK HANDLER ---
+        card.addEventListener('click', () => {
+          if (!state.isDragging && !p.locked) {
+            window.location.href = p.link;
+          }
+        });
+
+        card.addEventListener('mouseenter', () => {
+          state.hovering = true;
+          if (p.locked) {
+            card.querySelector('h2').innerText = p.lockMsg;
+            card.querySelector('span').innerText = "[ LOCKED ]";
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (!state.isDragging) state.hovering = false;
+          if (p.locked) {
+            card.querySelector('h2').innerText = p.title;
+            card.querySelector('span').innerText = p.sub;
+          }
+        });
+
+        layer.appendChild(card);
+        cards.push(state);
+      });
+    }
+
+    window.addEventListener('mousemove', (e) => doDrag(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => { if (e.touches[0]) doDrag(e.touches[0].clientX, e.touches[0].clientY); }, { passive: false });
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+
+    function doDrag(clientX, clientY) {
+      if (!draggingCard) return;
+      const moveDist = Math.sqrt(Math.pow(clientX - dragStartX, 2) + Math.pow(clientY - dragStartY, 2));
+      if (moveDist > 5) {
+        draggingCard.isDragging = true;
+        draggingCard.el.classList.add('is-dragging');
+        const newX = ((clientX - dragOffset.x) / window.innerWidth) * 100;
+        const newY = ((clientY - dragOffset.y) / window.innerHeight) * 100;
+        draggingCard.vx = (newX - draggingCard.x) * 0.2;
+        draggingCard.vy = (newY - draggingCard.y) * 0.2;
+        draggingCard.x = newX;
+        draggingCard.y = newY;
+        draggingCard.hovering = true;
+      }
+    }
+
+    function endDrag() {
+      if (draggingCard) {
+        draggingCard.el.classList.remove('is-dragging');
+        draggingCard.hovering = false;
+        setTimeout(() => {
+          if (draggingCard) draggingCard.isDragging = false;
+          draggingCard = null;
+        }, 50);
+      }
+    }
+
+    function animateCards() {
+      cards.forEach(c => {
+        if (!c.hovering) {
+          c.x += c.vx; c.y += c.vy;
+          if (c.x < 0 || c.x > 85) c.vx *= -1;
+          if (c.y < 0 || c.y > 70) c.vy *= -1;
+        }
+        c.el.style.left = c.x + '%';
+        c.el.style.top = c.y + '%';
+      });
+      requestAnimationFrame(animateCards);
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeAllModals() { document.querySelectorAll('.modal-wrapper').forEach(m => m.classList.remove('active')); }
+
+    resize();
+    initCards();
+    animateFog();
+    animateCards();
+  </script>
+</body>
+
+</html>
